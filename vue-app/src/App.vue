@@ -1,5 +1,5 @@
 <template>
   <div>
-    vue 微应用
+    <router-view></router-view>
   </div>
 </template>

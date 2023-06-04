@@ -1,29 +1,76 @@
-import React from 'react';
-import WujieReact from 'wujie-react';
+import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import {
+  GithubFilled,
+  InfoCircleFilled,
+  QuestionCircleFilled,
+} from '@ant-design/icons';
+import {
+  PageContainer,
+  ProCard,
+  ProLayout,
+} from '@ant-design/pro-components';
 
-import hostMap from './conf/hostMap';
-import microHostMap from './conf/microHostMap';
+import defaultProps from './_defaultProps';
+import RoutesConf from './router';
 
-export default function App() {
+export default () => {
+  const location = useLocation()
+
+  const [pathname, setPathname] = useState(location.pathname);
+  const navigate = useNavigate()
+
   return (
-    <div>
-      App组合
-
-      {/* react 微应用 */}
-      <WujieReact
-        width={"100%"}
-        height={"100%"}
-        name="reactApp"
-        url={hostMap(microHostMap.reactApp)}
-      />
-
-      {/* vue 微应用 */}
-      <WujieReact
-        width={"100%"}
-        height={"100%"}
-        name="vueApp"
-        url={hostMap(microHostMap.vueApp)}
-      />
+    <div
+      id="test-pro-layout"
+      style={{
+        height: '100vh',
+      }}
+    >
+      <ProLayout
+        title="微前端"
+        logo={false}
+        layout='side'
+        siderWidth={216}
+        {...defaultProps}
+        location={{
+          pathname,
+        }}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          title: '邓文杰',
+          size: 'small',
+        }}
+        actionsRender={(props) => {
+          if (props.isMobile) return [];
+          return [
+            <InfoCircleFilled key="InfoCircleFilled" />,
+            <QuestionCircleFilled key="QuestionCircleFilled" />,
+            <GithubFilled key="GithubFilled" />,
+          ];
+        }}
+        menuItemRender={(item, dom) => (
+          <div
+            onClick={() => {
+              setPathname(item.path!)
+              navigate(item.path!)
+            }}
+          >
+            {dom}
+          </div>
+        )}
+      >
+        <PageContainer>
+          <ProCard
+            style={{
+              height: '100vh',
+              minHeight: 800,
+            }}
+          >
+            <RoutesConf />
+          </ProCard>
+        </PageContainer>
+      </ProLayout>
     </div>
-  )
-}
+  );
+};

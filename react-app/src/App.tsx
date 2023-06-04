@@ -1,9 +1,10 @@
 import React from 'react';
+import RoutesConf from './router';
 
 export default function App() {
   return (
     <div>
-      微应用 react
+      <RoutesConf />
     </div>
   )
 }
