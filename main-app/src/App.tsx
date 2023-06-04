@@ -13,6 +13,7 @@ import {
 
 import defaultProps from './_defaultProps';
 import RoutesConf from './router';
+import logo from './assets/logo.png'
 
 export default () => {
   const location = useLocation()
@@ -28,8 +29,8 @@ export default () => {
       }}
     >
       <ProLayout
-        title="微前端"
-        logo={false}
+        title="海川"
+        logo={logo}
         layout='side'
         siderWidth={216}
         {...defaultProps}
