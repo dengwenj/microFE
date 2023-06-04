@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function App() {
   return (
-    <div>App</div>
+    <div>
+      微应用 react
+    </div>
   )
 }

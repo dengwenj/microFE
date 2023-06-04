@@ -1,5 +1,5 @@
 <template>
   <div>
-    app
+    vue 微应用
   </div>
 </template>
