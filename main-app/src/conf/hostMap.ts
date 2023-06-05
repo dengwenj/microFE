@@ -2,8 +2,8 @@ import microHostMap from "./microHostMap"
 
 const map = {
   // 服务器地址
-  [microHostMap.reactApp]: "wfe.dengwj.vip",
-  [microHostMap.vueApp]: "wfe.dengwj.vip",
+  [microHostMap.reactApp]: "http://wfe.dengwj.vip:1209",
+  [microHostMap.vueApp]: "http://wfe.dengwj.vip:2024",
 }
 
 export default function hostMap(host: string): string {
