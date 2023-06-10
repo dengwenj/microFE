@@ -8,7 +8,7 @@ import microHostMap from '../../conf/microHostMap'
 export default function VueTest() {
   const location = useLocation()
 
-  const url = hostMap(microHostMap.vueApp) + location.pathname
+  const url = hostMap(microHostMap.vueApp) + `/#${location.pathname}`
 
   return (
     <div>
